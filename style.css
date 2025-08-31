@@ -343,6 +343,7 @@
         justify-content: center;
         width: 100%;
         padding: 0 10px;
+        gap: 20px;
         
     }
 
@@ -357,7 +358,6 @@
         flex-basis: 300px; /* Adicione uma largura base para os cards */
         max-width: 300px; /* Garanta que o card não cresça mais que o desejado */
         flex-grow: 1;
-        margin: 5px; /* Permita que o card cresça para ocupar o espaço disponível */
     }
 
     .product-card:hover {
@@ -392,6 +392,32 @@
         background-attachment: fixed; /* Opcional: para efeito de parallax */
         color: white; /* Para a cor do texto */
     }
+
+    .video-section {
+        background-image: url('image/apresentação.jpg'); /* Adiciona a imagem de fundo */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Opcional: para efeito de parallax */
+        color: white; /* Para a cor do texto */
+    }
+
+    .video-container {
+        position: relative;
+        padding-bottom: 40%; /* Mantém a proporção de 16:9 (altura/largura = 9/16 = 0.5625) */
+        height: 0;
+        overflow: hidden;
+        max-width: 100%; /* Garante que o contêiner não ultrapasse a largura do pai */
+    }
+
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+
 
     .benefits-section h2{
         background: rgba(0, 0, 0, 0.8);
