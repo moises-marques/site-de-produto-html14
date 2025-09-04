@@ -245,18 +245,18 @@ document.addEventListener('DOMContentLoaded', () => {
         renderProducts(filteredProducts);
     });
 
-    // Animação de Fade-in
-    const fadeInElements = [
-        ...document.querySelectorAll('#products-section'),
-        ...document.querySelectorAll('#schedule-section'),
-        ...document.querySelectorAll('#budget-section'),
-        ...document.querySelectorAll('#blog-section'),
-        ...document.querySelectorAll('#video-section'),
-        ...document.querySelectorAll('#benefits-section'),
-        ...document.querySelectorAll('#testimonials-section'),
-        ...document.querySelectorAll('.testimonial-card'),
-        ...document.querySelectorAll('.benefit-card')
-    ];
+    // // Animação de Fade-in
+    // const fadeInElements = [
+    //     ...document.querySelectorAll('#products-section'),
+    //     ...document.querySelectorAll('#schedule-section'),
+    //     ...document.querySelectorAll('#budget-section'),
+    //     ...document.querySelectorAll('#blog-section'),
+    //     ...document.querySelectorAll('#video-section'),
+    //     ...document.querySelectorAll('#benefits-section'),
+    //     ...document.querySelectorAll('#testimonials-section'),
+    //     ...document.querySelectorAll('.testimonial-card'),
+    //     ...document.querySelectorAll('.benefit-card')
+    // ];
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
