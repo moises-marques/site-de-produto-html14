@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
     /* Estilos Gerais */
     body {
@@ -253,3 +254,206 @@
         background-color: #c13584;
         color: white;
     }
+=======
+
+    /* Estilos Gerais */
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    /* Seções */
+    section {
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    /* Seção de Cabeçalho (Hero) - AGORA COM CONTEÚDO SOBRE A IMAGEM */
+    .hero-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('image/moises.jpg') no-repeat center center/cover;
+        color: white;
+        padding: 80px 20px;
+        position: relative; /* Define o ponto de referência para os elementos internos */
+        display: flex; /* Para centralizar o conteúdo vertical e horizontalmente */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Define a altura total da tela */
+    }
+
+    /* Oculta a imagem no HTML, pois ela será colocada no CSS */
+    .hero-section img { 
+        display: none;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+    }
+
+    .hero-section p {
+        font-size: 1.2em;
+    }
+
+    /* Botão de Compra */
+    .buy-button {
+        display: inline-block;
+        background-color: #28a745;
+        color: white;
+        padding: 12px 25px;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 1em;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        border: none;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    .buy-button:hover {
+        background-color: #218838;
+    }
+
+    /* Seção de Produtos */
+    .products-section {
+        background-image: url('image/a.jpg'); /* Adiciona a imagem de fundo */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Opcional: para efeito de parallax */
+        color: white; /* Para a cor do texto */
+    }
+    
+    .products-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+        position: relative;
+        z-index: 2; /* Garante que os cards fiquem por cima do fundo */
+    }
+
+    .product-card {
+        background: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente para o card */
+        color: #333; /* Cor do texto dentro do card */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        text-align: left;
+        transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .product-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+
+    .product-card h3 {
+        margin: 0 0 10px;
+    }
+
+    .product-card .price {
+        font-weight: bold;
+        color: #007bff;
+        font-size: 1.2em;
+    }
+
+    /* Seção de Benefícios */
+    .benefits-section {
+        background-image: url('image/marques.jpg'); /* Adiciona a imagem de fundo */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Opcional: para efeito de parallax */
+        color: white; /* Para a cor do texto */
+    }
+
+    .contact-section {
+        background-image: url('image/pereira.png'); /* Adiciona a imagem de fundo */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Opcional: para efeito de parallax */
+        color: white; /* Para a cor do texto */
+    }
+
+    .benefits-section h2, .benefits-section ul {
+      position: relative;
+      z-index: 2;
+    }
+
+    .benefits-section ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .benefits-section li {
+        background: rgba(233, 236, 239, 0.8); /* Fundo semi-transparente para o item */
+        color: #333;
+        padding: 15px;
+        border-radius: 8px;
+        flex: 1 1 250px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    /* Seção de Depoimentos */
+    .testimonials-section {
+        background-color: #e9ecef;
+    }
+
+    .testimonial-card {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    /* Seção de Contato (Botões) */
+    .contact-section {
+        background-color: #fff;
+    }
+
+    .contact-button {
+        display: inline-block;
+        padding: 12px 25px;
+        margin: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 50px;
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .contact-button:hover {
+        transform: translateY(-3px);
+    }
+
+    .whatsapp {
+        background-color: #25D366;
+        color: white;
+    }
+
+    .email {
+        background-color: #dd4b39;
+        color: white;
+    }
+
+    .instagram {
+        background-color: #c13584;
+        color: white;
+    }
+>>>>>>> af6caea (Forçando o navegador a atualizar o JS)
