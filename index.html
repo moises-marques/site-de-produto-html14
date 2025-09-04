@@ -4,90 +4,202 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Título do Produto - Site de Vendas</title>
-    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Adicione o estilo da fonte aqui, se não usar link externo */
+        body { font-family: 'Poppins', sans-serif; }
+
+        /* Estilos base para os botões mágicos */
+        .btn-magic {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            color: white; 
+            transition: 
+                color 0.1s, 
+                background-color 0.3s ease-in-out,
+                box-shadow 0.3s ease-in-out;
+            background-color: #1a6d3f;
+        }
+        .btn-magic:nth-child(2) { background-color: #a7362a; }
+        .btn-magic:nth-child(3) { background-color: #922c66; }
+
+        .btn-magic::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 0, 0, 0);
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease-out;
+            z-index: -1;
+        }
+
+        .btn-magic:hover::after,
+        .btn-magic:active::after {
+            transform: translate(-50%, -50%) scale(2.5); 
+            opacity: 0;
+        }
+
+        .btn-magic:hover, .btn-magic:active {
+            background-color: #ff0000;
+            box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.8),
+                        0 0 30px 10px rgba(255, 0, 0, 0.6),
+                        0 0 45px 15px rgba(255, 0, 0, 0.4);
+        }
+
+        .btn-magic:active {
+            color: #000 !important;
+            transition: color 0.1s;
+        }
+    </style>
 </head>
-<body>
-    <header class="hero-section">
-        <h1>Nome do Seu Produto ou Serviço</h1>
-        <p>Uma solução incrível para o seu problema.</p>
-        <button class="buy-button">Comprar Agora</button>
+
+<body class="font-poppins">
+
+    <header id="header" class="bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center h-screen px-4 text-white" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('image/moises.jpg');">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2 text-center">Nome do Seu Produto ou Serviço</h1>
+        <p class="text-lg sm:text-xl lg:text-2xl mb-6 text-center">Uma solução incrível para o seu problema.</p>
+        <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out">WhatsApp</button>
+        <a href="#contact-section" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out flex items-center justify-center">Fale Conosco</a>
+      </div>
     </header>
 
-    <section class="products-section bg-image-section">
-        <h2>Nossos Produtos</h2>
-        <div class="products-container container">
-            <div class="product-card">
-                <img src="https://via.placeholder.com/280x200" alt="Nome do Produto 3" />
-                <h3>Nome do Produto 3</h3>
-                <p>Descrição curta do produto 3.</p>
-                <p class="price">R$ 79,90</p>
-                <button class="buy-button">Comprar</button>
+    <section id="products-section" class="py-12 text-white bg-gray-900" style="background-image: url('image/phone.jpg'); background-attachment: fixed; background-size: cover; background-position: center;">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-8 text-center">Nossos Produtos</h2>
+            <div class="flex flex-wrap justify-center items-center gap-4 mb-8">
+                <input type="text" id="search-bar" placeholder="Pesquisar produtos..." class="w-full max-w-sm px-4 py-2 rounded-full border border-gray-300 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button class="filter-btn active bg-primary-dark text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out hover:bg-blue-700" data-category="todos">Todos</button>
+                    <button class="filter-btn bg-gray-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out hover:bg-gray-300" data-category="eletronicos">Eletrônicos</button>
+                    <button class="filter-btn bg-gray-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out hover:bg-gray-300" data-category="acessorios">Acessórios</button>
+                    <button class="filter-btn bg-gray-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out hover:bg-gray-300" data-category="livros">Livros</button>
+                </div>
             </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/280x200" alt="Nome do Produto 3" />
-                <h3>Nome do Produto 3</h3>
-                <p>Descrição curta do produto 3.</p>
-                <p class="price">R$ 79,90</p>
-                <button class="buy-button">Comprar</button>
-            </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/280x200" alt="Nome do Produto 3" />
-                <h3>Nome do Produto 3</h3>
-                <p>Descrição curta do produto 3.</p>
-                <p class="price">R$ 79,90</p>
-                <button class="buy-button">Comprar</button>
-            </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/280x200" alt="Nome do Produto 3" />
-                <h3>Nome do Produto 3</h3>
-                <p>Descrição curta do produto 3.</p>
-                <p class="price">R$ 79,90</p>
-                <button class="buy-button">Comprar</button>
-            </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/280x200" alt="Nome do Produto 3" />
-                <h3>Nome do Produto 3</h3>
-                <p>Descrição curta do produto 3.</p>
-                <p class="price">R$ 79,90</p>
-                <button class="buy-button">Comprar</button>
+            
+            <div class="products-container flex flex-wrap justify-center gap-8" id="products-catalog">
+                </div>
+        </div>
+    </section>
+
+    <section id="schedule-section" class="py-12 bg-light-background border-t border-gray-300 bg-cover bg-center" style="background-image: url('image/Agenda.jpg');">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-2 text-center">Agende seu Horário</h2>
+            <p class="text-center text-gray-600 mb-8">Escolha a data e a hora para o seu agendamento.</p>
+            <form id="schedule-form" class="max-w-lg mx-auto flex flex-col gap-4 text-gray-800">
+                <label for="name" class="font-semibold">Seu Nome:</label>
+                <input type="text" id="name" name="name" required class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        
+                <label for="phone" class="font-semibold">Seu Telefone:</label>
+                <input type="tel" id="phone" name="phone" required class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                
+                <label for="date" class="font-semibold">Data:</label>
+                <input type="date" id="date" name="date" required class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                
+                <label for="time" class="font-semibold">Horário:</label>
+                <input type="time" id="time" name="time" required class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                
+                <button type="submit" class="mt-4 bg-primary-dark text-black font-bold py-4 rounded-full transition duration-300 ease-in-out hover:bg-blue-700">Agendar Agora</button>
+            </form>
+            <div id="schedule-message" class="text-center mt-4 font-bold"></div>
+        </div>
+    </section>
+
+    <section id="budget-section" class="py-12 bg-gray-2bg-light-background border-t border-gray-300 bg-cover bg-center" style="background-image: url('image/apresentação.jpg');">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-2 text-center">Faça seu Orçamento Online</h2>
+            <p class="text-center mb-8 text-white">Selecione os itens desejados para o seu orçamento.</p>
+            <form id="budget-form" class="max-w-xl mx-auto">
+                <div class="product-options flex flex-col gap-3 p-6 bg-white rounded-lg shadow-md mb-6"></div>
+                <div class="total-price text-right text-2xl font-bold mb-6 text-white">
+                    <p>Total do Orçamento:</p>
+                    <span id="total-value" class="text-green-600">R$ 0,00</span>
+                </div>
+                <button type="submit" class="w-full bg-green-600 text-white font-bold py-4 rounded-full transition duration-300 ease-in-out hover:bg-green-700">Enviar Orçamento por WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="blog-section" class="py-16 bg-white bg-cover bg-center" style="background-image: url('image/phone.jpg');">
+        <div class="container mx-auto padding">
+            <h2 class="text-3xl font-bold mb-2 text-center">Nosso Blog</h2>
+            <p class="text-center text-gray-600 mb-12">Conteúdo exclusivo para você.</p>
+            <div class="blog-container flex flex-wrap justify-center gap-8" id="blog-posts">
+                </div>
+        </div>
+    </section>
+
+    <section id="video-section" class="py-12 bg-gray-100 dark:bg-gray-800 bg-cover bg-center" style="background-image: url('image/Babinete Pc.jpeg');">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8 text-text-gray dark:text-gray-100">Assista ao Nosso Vídeo</h2>
+            <div class="w-full max-w-4xl aspect-video rounded-xl overflow-hidden shadow-2xl mx-auto">
+                <iframe title="vimeo-player" src="https://player.vimeo.com/video/1115677696?h=e55bf09a0f" class="w-full h-full" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
-    <section class="video-section">
-    <div class="container">
-        <h2>Assista a nossa apresentação</h2>
-        <div class="video-container">
-            <iframe title="vimeo-player" src="https://player.vimeo.com/video/27177486?h=233b83083c" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe>
-
-        </div>
-    </div>
-</section>
-
-    <section class="benefits-section">
-        <h2>Por que escolher o nosso produto?</h2>
-        <ul>
-            <li>Benefício 1: Exemplo de uma vantagem principal.</li>
-            <li>Benefício 2: Exemplo de outro ponto forte.</li>
-            <li>Benefício 3: Exemplo de como o produto resolve um problema.</li>
-        </ul>
-    </section>
-
-    <section class="testimonials-section">
-        <h2>O que nossos clientes dizem</h2>
-        <div class="testimonial-card">
-            <p>"Esse produto mudou minha vida!"</p>
-            <span>- Cliente Satisfeito</span>
+    <section id="benefits-section" class="py-16 bg-cover bg-center" style="background-image: url('image/escritorio.jpg');">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl font-extrabold text-white mb-12 drop-shadow-lg">Por que escolher o nosso produto?</h2>
+            <div class="flex flex-wrap justify-center gap-8">
+                <div class="benefit-card bg-white/10 backdrop-blur-sm rounded-xl shadow-2xl p-8 max-w-sm transform transition-all duration-500 ease-in-out hover:scale-105 hover:-translate-y-2 hover:shadow-primary-dark/50">
+                    <h3 class="text-3xl font-bold text-white mb-4 drop-shadow-md">Benefício 1</h3>
+                    <p class="text-gray-200 text-lg">Exemplo de uma vantagem principal com uma descrição mais elaborada para atrair a atenção do cliente.</p>
+                </div>
+                <div class="benefit-card bg-white/10 backdrop-blur-sm rounded-xl shadow-2xl p-8 max-w-sm transform transition-all duration-500 ease-in-out hover:scale-105 hover:-translate-y-2 hover:shadow-primary-dark/50">
+                    <h3 class="text-3xl font-bold text-white mb-4 drop-shadow-md">Benefício 2</h3>
+                    <p class="text-gray-200 text-lg">Exemplo de outro ponto forte, mostrando como nosso produto se destaca no mercado atual.</p>
+                </div>
+                <div class="benefit-card bg-white/10 backdrop-blur-sm rounded-xl shadow-2xl p-8 max-w-sm transform transition-all duration-500 ease-in-out hover:scale-105 hover:-translate-y-2 hover:shadow-primary-dark/50">
+                    <h3 class="text-3xl font-bold text-white mb-4 drop-shadow-md">Benefício 3</h3>
+                    <p class="text-gray-200 text-lg">Exemplo de como o produto resolve um problema comum do cliente, oferecendo uma solução eficaz.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="contact-section">
-        <h2>Fale Conosco</h2>
-        <a href="#" class="contact-button whatsapp">WhatsApp</a>
-        <a href="#" class="contact-button email">E-mail</a>
-        <a href="#" class="contact-button instagram">Instagram</a>
+    <section id="testimonials-section" class="py-16 bg-gray-900 bg-cover bg-center" style="background-image: url('image/foto.jpg');">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl font-extrabold text-white mb-12 drop-shadow-lg">O que nossos clientes dizem</h2>
+            <div class="flex flex-wrap justify-center gap-8">
+                <div class="testimonial-card bg-white/10 backdrop-blur-sm rounded-xl shadow-2xl p-8 max-w-md transform transition-all duration-500 ease-in-out hover:scale-105 hover:-translate-y-2 hover:shadow-primary-dark/50 flex flex-col justify-between">
+                    <p class="text-xl italic text-gray-200 mb-6 leading-relaxed">"Esse produto mudou minha vida! A qualidade é incomparável e o suporte ao cliente é excelente. Recomendo a todos!"</p>
+                    <p class="text-2xl font-semibold text-yellow-400">- Cliente Satisfeito</p>
+                </div>
+                <div class="testimonial-card bg-white/10 backdrop-blur-sm rounded-xl shadow-2xl p-8 max-w-md transform transition-all duration-500 ease-in-out hover:scale-105 hover:-translate-y-2 hover:shadow-primary-dark/50 flex flex-col justify-between">
+                    <p class="text-xl italic text-gray-200 mb-6 leading-relaxed">"Incrível! A entrega foi super rápida e o produto superou todas as minhas expectativas. Com certeza comprarei novamente."</p>
+                    <p class="text-2xl font-semibold text-yellow-400">- Comprador Feliz</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-section" class="py-16 bg-gray-900 text-white bg-cover bg-center bg-fixed" style="background-image: url('image/homecell.jpg');">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl font-extrabold text-white mb-12 drop-shadow-lg">Fale Conosco</h2>
+            <div class="flex flex-wrap justify-center gap-8 mb-8">
+                <button onclick="window.location.href = 'https://wa.me/SEU_NUMERO'" class="btn-magic text-white font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out">WhatsApp</button>
+                <button onclick="window.location.href = 'mailto:SEU_EMAIL'" class="btn-magic text-white font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out">E-mail</button>
+                <button onclick="window.location.href = 'https://www.instagram.com/SEU_INSTAGRAM'" class="btn-magic text-white font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out">Instagram</button>
+            </div>
+            <a href="#header" class="block text-xl font-extrabold text-yellow-400 transition duration-300 ease-in-out hover:underline" style="text-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000, 4px 4px 0 #000, 5px 5px 0 rgba(0,0,0,0.8)">
+            &uarr; Voltar para o início
+            </a>
+        </div>
     </section>
 
     <script src="script.js?v=20250829"></script>
-</body>
-</html>
+    <script src="https://cdn.tailwindcss.com?config=./tailwind.config.js"></script>
+
+     <div class="fixed bottom-6 right-6 z-50">
+            <a href="https://wa.me/SEU_NUMERO_AQUI" class="block w-16 h-16 rounded-full bg-green-500 shadow-lg hover:bg-green-600 transition duration-300 ease-in-out">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="p-2"/>
+            </a>
+        </div>
+    </body>
+    </html>
